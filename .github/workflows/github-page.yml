@@ -37,9 +37,11 @@ jobs:
       id-token: write
     runs-on: ubuntu-latest
     environment:
-      name: build-artifacts
+      name: github-pages
       url: ${{steps.deployment.outputs.page_url}}
     steps:
       - name: Deploy artifact
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: build-artifacts
