@@ -1,0 +1,73 @@
+.sort-container {
+  position: relative;
+}
+
+.item-container {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sort-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: -10px;
+}
+
+
+.item-head {
+  position: relative;
+  flex: 1;
+  min-width: 300px;
+  margin-right: 50px;
+  display: block;
+  max-width: 70%;
+}
+
+.archiveItem {
+  display: block;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: keep-all;
+  white-space: nowrap;
+  height: 25px;
+  line-height: 25px;
+}
+
+.item-meta {
+  display: flex;
+}
+
+.item-tags {
+  width: 100%;
+  display: flex;
+}
+
+.item-tag-btn {
+  border: 1px solid #ccc;
+  box-sizing: content-box;
+  height: 16px;
+  line-height: 16px;
+  font-size: 12px;
+  border-radius: 4px;
+  color: #ccc;
+  padding: 0 2px;
+  margin: 0 5px 0 0;
+}
+
+.item-date {
+  height: 16px;
+  line-height: 16px;
+  font-size: 12px;
+  border-radius: 4px;
+  color: #ccc;
+  margin: 0;
+  white-space: nowrap;
+  margin-left: 10px;
+}

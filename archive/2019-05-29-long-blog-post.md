@@ -1,6 +1,6 @@
 ---
 slug: long-blog-post
-title: Long Blog Post
+title: Long Blog PostLong Blog PostLong Blog PostLong Blog PostLong Blog PostLong Blog Post
 authors: yinpo
 tags: [hello, docusaurus]
 ---

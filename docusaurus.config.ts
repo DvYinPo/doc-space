@@ -1,6 +1,7 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import type { Options as BlogOptions } from "@docusaurus/plugin-content-blog";
 
 const config: Config = {
   title: "Documents Space",
@@ -41,7 +42,10 @@ const config: Config = {
             "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         blog: {
+          blogTitle: "Document space blog",
+          blogDescription: "Yinpo document space blog.",
           showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
           showReadingTime: true,
           feedOptions: {
             type: "all",
@@ -62,9 +66,50 @@ const config: Config = {
     ],
   ],
 
+  plugins: [
+    [
+      "@docusaurus/plugin-content-blog",
+      {
+        id: "archive-blog",
+        /**
+         * URL route for the blog section of your site.
+         * *DO NOT* include a trailing slash.
+         */
+        routeBasePath: "archive",
+        /**
+         * Path to data on filesystem relative to site dir.
+         */
+        blogSidebarTitle: "Archived blogs",
+        blogSidebarCount: 0,
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+        blogListComponent: "/src/theme/ArchivedBlogListPage",
+        path: "./archive",
+        authorsMapPath: "../blog/authors.yml",
+        tags: "../blog/tags.yml",
+      } satisfies BlogOptions,
+    ],
+  ],
+
   themeConfig: {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
+    metadata: [
+      {
+        name: "description",
+        content:
+          "yinpo document space, which include blog, tools and wrapper documents etc. 欢迎来到Yinpo的空间，这里分享关于技术、生活和学习的文章。",
+      },
+      {
+        name: "keywords",
+        content:
+          "yinpo, dvyinpo, yinpo document space, doc-space, github, github.io, dvyinpo.github.io, github pages, blog, tools, wrapper documents, 博客, 技术, 生活, 学习, 编程",
+      },
+      {
+        name: "author",
+        content: "yinpo",
+      },
+    ],
     navbar: {
       title: "Doc Space",
       logo: {
@@ -79,12 +124,13 @@ const config: Config = {
           label: "Tutorial",
         },
         { to: "/blog", label: "Blog", position: "left" },
-        { type: "search", position: "right" },
         {
-          href: "https://github.com/facebook/docusaurus",
-          label: "GitHub",
+          type: "dropdown",
+          label: "其他",
           position: "right",
+          items: [{ to: "/archive", label: "归档" }],
         },
+        { type: "search", position: "right" },
       ],
     },
     footer: undefined,
@@ -106,7 +152,7 @@ const config: Config = {
       // Optional: path for search page that enabled by default (`false` to disable it)
       searchPagePath: false,
       // Optional: whether the insights feature is enabled or not on Docsearch (`false` by default)
-      insights: false,
+      insights: true,
     },
     prism: {
       theme: prismThemes.github,
