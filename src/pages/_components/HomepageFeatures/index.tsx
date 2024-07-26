@@ -1,34 +1,45 @@
 import clsx from "clsx";
 import Heading from "@theme/Heading";
 import styles from "./styles.module.css";
+import Link from "@docusaurus/Link";
 
 type FeatureItem = {
   title: string;
+  link: string;
   Svg: React.ComponentType<React.ComponentProps<"svg">>;
   description: JSX.Element;
 };
 
 const FeatureList: FeatureItem[] = [
   {
+    title: "Blog",
+    Svg: require("@site/static/tiger/happy.svg").default,
+    link: "/blog",
+    description: <>Blogs</>,
+  },
+  {
     title: "Tools",
     Svg: require("@site/static/tiger/adorkable.svg").default,
+    link: "/tools",
     description: <>Some useful tools</>,
   },
   {
     title: "Wrappers",
     Svg: require("@site/static/tiger/caper.svg").default,
+    link: "/docs/",
     description: <>Function wrappers</>,
   },
   {
     title: "Components",
     Svg: require("@site/static/tiger/easy.svg").default,
+    link: "/components",
     description: <>My components</>,
   },
 ];
 
-function Feature({ title, Svg, description }: FeatureItem) {
+function Feature({ title, Svg, description, link }: FeatureItem) {
   return (
-    <div className={styles.itemCard}>
+    <Link className={styles.itemCard} href={link}>
       <div className="text--center">
         <Heading as="h3">{title}</Heading>
         <Svg className={styles.featureSvg} role="img" />
@@ -36,7 +47,7 @@ function Feature({ title, Svg, description }: FeatureItem) {
       <div className="text--center padding-horiz--md">
         <p>{description}</p>
       </div>
-    </div>
+    </Link>
   );
 }
 
