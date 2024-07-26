@@ -89,16 +89,16 @@ const config: Config = {
     },
     footer: undefined,
     algolia: {
-      appId: "yinpo-doc-space",
+      appId: "46OC3C8LHM",
       // Public API key: it is safe to commit it
-      apiKey: "2NFQPNL0ON",
-      indexName: "YINPO_DOC_SPACE",
+      apiKey: "e6329a618bde1dee32f4a35a548fa421",
+      indexName: "dvyinpoio",
 
       // Optional: see doc section below
       contextualSearch: true,
       // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
       replaceSearchResultPathname: {
-        from: "/docs/", // or as RegExp: /\/docs\//
+        from: "/doc-space/", // or as RegExp: /\/docs\//
         to: "/",
       },
       // Optional: Algolia search parameters
