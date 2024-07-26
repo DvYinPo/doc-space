@@ -26,13 +26,13 @@ const FeatureList: FeatureItem[] = [
   {
     title: "Wrappers",
     Svg: require("@site/static/tiger/caper.svg").default,
-    link: "/docs/",
+    link: "/docs",
     description: <>Function wrappers</>,
   },
   {
     title: "Components",
     Svg: require("@site/static/tiger/easy.svg").default,
-    link: "/components",
+    link: "/docs",
     description: <>My components</>,
   },
 ];
