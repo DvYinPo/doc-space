@@ -40,7 +40,9 @@ function BlogListPageContent(props: Props): JSX.Element {
           const list = itemsList[key];
           return (
             <div key={key}>
-              <div className={styles["sort-title"]}>{key}</div>
+              <div className={styles["sort-title"]}>
+                {key} ({list.length})
+              </div>
               <div className={styles["sort-container"]}>
                 {list.map((item) => {
                   return (
