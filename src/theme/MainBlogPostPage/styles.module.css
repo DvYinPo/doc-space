@@ -1,0 +1,19 @@
+.back-btn {
+  color: var(--ifm-link-color);
+  background-color: transparent;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-pagination-nav-border-radius);
+  display: block;
+  height: 20px;
+  font-size: 20px;
+  line-height: 20px;
+  padding: var(--ifm-global-spacing);
+  transition: border-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  color: var(--ifm-link-hover-color);
+  border-color: var(--ifm-pagination-nav-color-hover);
+}

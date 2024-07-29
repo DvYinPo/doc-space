@@ -5,11 +5,12 @@ import HomepageFeatures from "@site/src/pages/_components/HomepageFeatures";
 import Heading from "@theme/Heading";
 
 import styles from "./index.module.css";
+import React, { useEffect, useRef } from "react";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <header className={clsx("hero hero--primary", styles.heroBanner)}>
+    <header className={clsx(styles.heroBanner)}>
       <div className="container">
         <Heading as="h1" className="hero__title">
           {siteConfig.title}

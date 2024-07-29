@@ -4,7 +4,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 import type { Options as BlogOptions } from "@docusaurus/plugin-content-blog";
 
 const config: Config = {
-  title: "Documents Space",
+  title: "Document Space",
   tagline: "Everything is cool!",
   favicon: "img/favicon.ico",
 
@@ -41,7 +41,9 @@ const config: Config = {
         },
         blog: {
           blogTitle: "Document space blog",
+          blogPostComponent: "/src/theme/MainBlogPostPage",
           blogDescription: "Yinpo document space blog.",
+          blogSidebarCount: "ALL",
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           showReadingTime: true,
@@ -81,6 +83,7 @@ const config: Config = {
         blogSidebarCount: 0,
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
+        blogPostComponent: "/src/theme/MainBlogPostPage",
         blogListComponent: "/src/theme/ArchivedBlogListPage",
         path: "./archive",
         authorsMapPath: "../blog/authors.yml",
@@ -112,7 +115,7 @@ const config: Config = {
       title: "Doc Space",
       logo: {
         alt: "doc space",
-        src: "img/logo.svg",
+        src: "img/logo.png",
       },
       items: [
         {
