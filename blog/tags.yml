@@ -19,3 +19,8 @@ c++:
   label: C++
   permalink: /cpp
   description: C++是世界上最牛逼的语言，没有之一。
+
+algorithm:
+  label: Algorithm
+  permalink: /algorithm
+  description: An algorithm is a set of instructions for solving logical and mathematical problems, or for accomplishing some other task.
