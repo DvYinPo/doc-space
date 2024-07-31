@@ -52,7 +52,6 @@ function BlogPostPageContent({
 
 export default function BlogPostPage(props: Props): JSX.Element {
   const BlogPostContent = props.content;
-  console.log("=> props", props);
   const handleBack = () => {
     const pathArr = props.content.metadata.permalink.split("/");
     window.location.href = pathArr.slice(0, 3).join("/");
