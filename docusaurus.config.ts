@@ -11,15 +11,15 @@ const config: Config = {
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: "https://dvyinpo.github.io",
+  url: "https://doc-space.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/doc-space/",
+  baseUrl: "/doc-space.github.io/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "dvyinpo", // Usually your GitHub org/user name.
-  projectName: "doc-space", // Usually your repo name.
+  projectName: "doc-space.github.io", // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -148,7 +148,7 @@ const config: Config = {
       contextualSearch: true,
       // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
       replaceSearchResultPathname: {
-        from: "/doc-space/", // or as RegExp: /\/docs\//
+        from: "/", // or as RegExp: /\/docs\//
         to: "/",
       },
       // Optional: Algolia search parameters
@@ -168,7 +168,8 @@ const config: Config = {
     {
       href: "https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css",
       type: "text/css",
-      integrity: "sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM",
+      integrity:
+        "sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM",
       crossorigin: "anonymous",
     },
   ],
