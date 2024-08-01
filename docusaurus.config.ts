@@ -116,6 +116,10 @@ const config: Config = {
         name: "author",
         content: "yinpo",
       },
+      {
+        name: "google-site-verification",
+        content: "iL-Liz0y6EnF_CyqW73Pq_YRsDN-OCqsIeowBpk9of0",
+      },
     ],
     navbar: {
       title: "Doc Space",
