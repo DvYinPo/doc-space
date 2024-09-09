@@ -1,24 +1,12 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
-
 c++:
   label: C++
   permalink: /cpp
   description: C++是世界上最牛逼的语言，没有之一。
+
+tool:
+  label: Tool
+  permalink: /tool
+  description: 实用工具，将想法付诸实践。
 
 algorithm:
   label: Algorithm
