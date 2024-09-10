@@ -13,7 +13,7 @@ keywords: [LaTeX, KaTeX, MathJax, math expression syntax]
 通常 markdown 中显示数学符号使用的是 LaTeX 语言，渲染工具主要是 KaTeX 和 MathJax。
 
 - LaTeX 是排版系统和语言规范，支持复杂的数学公式、图表、参考文献等，LaTeX 是数学公式语法的基础。
-- KaTeX 是一个快速、高效的 JavaScript 库，用于在网页上渲染 LaTeX 数学公式。
+- KaTeX 是一个 JavaScript 的显示引擎，用于在网页上渲染 LaTeX 数学公式，是一个快速、高效的库。
 - MathJax 是一个 JavaScript 的显示引擎，用于在网页上高质量地呈现 LaTeX、MathML 和 AsciiMath 数学公式。
 
 这里记录一下 LaTeX 系统中常见的数学符号语法。
@@ -72,32 +72,20 @@ keywords: [LaTeX, KaTeX, MathJax, math expression syntax]
 
 ## Greek Alphabets
 
-| Symbol     | Small Letter  | Capital Letter |
-| ---------- | ------------- | -------------- |
-| alpha      | $\alpha$      | $\Alpha$       |
-| beta       | $\beta$       | $\Beta$        |
-| gamma      | $\gamma$      | $\Gamma$       |
-| delta      | $\delta$      | $\Delta$       |
-| epsilon    | $\epsilon$    | $\Epsilon$     |
-| kappa      | $\kappa$      | $\Kappa$       |
-| psi        | $\psi$        | $\Psi$         |
-| digamma    | $\digamma$    |                |
-| theta      | $\theta$      | $\Theta$       |
-| vartheta   | $\vartheta$   |                |
-| lambda     | $\lambda$     | $\Lambda$      |
-| varepsilon | $\varepsilon$ |                |
-| mu         | $\mu$         |                |
-| sigma      | $\sigma$      | $\Sigma$       |
-| varsigma   | $\varsigma$   |                |
-| upsilon    | $\upsilon$    | $\Upsilon$     |
-| xi         | $\xi$         | $\Xi$          |
-| nu         | $\nu$         |                |
-| varphi     | $\varphi$     |                |
-| phi        | $\phi$        | $\Phi$         |
-| omega      | $\omega$      | $\Omega$       |
-| pi         | $\pi$         | $\Pi$          |
-| eta        | $\eta$        |                |
-| zeta       | $\zeta$       |                |
+| Symbol     | Small Letter  | Capital Letter | Symbol   | Small Letter | Capital Letter |
+| ---------- | ------------- | -------------- | -------- | ------------ | -------------- |
+| alpha      | $\alpha$      | $\Alpha$       | mu       | $\mu$        |                |
+| beta       | $\beta$       | $\Beta$        | sigma    | $\sigma$     | $\Sigma$       |
+| gamma      | $\gamma$      | $\Gamma$       | varsigma | $\varsigma$  |                |
+| delta      | $\delta$      | $\Delta$       | upsilon  | $\upsilon$   | $\Upsilon$     |
+| epsilon    | $\epsilon$    | $\Epsilon$     | xi       | $\xi$        | $\Xi$          |
+| kappa      | $\kappa$      | $\Kappa$       | nu       | $\nu$        |                |
+| psi        | $\psi$        | $\Psi$         | varphi   | $\varphi$    |                |
+| digamma    | $\digamma$    |                | phi      | $\phi$       | $\Phi$         |
+| theta      | $\theta$      | $\Theta$       | omega    | $\omega$     | $\Omega$       |
+| vartheta   | $\vartheta$   |                | pi       | $\pi$        | $\Pi$          |
+| lambda     | $\lambda$     | $\Lambda$      | eta      | $\eta$       |                |
+| varepsilon | $\varepsilon$ |                | zeta     | $\zeta$      |                |
 
 ## Math Constructs
 
