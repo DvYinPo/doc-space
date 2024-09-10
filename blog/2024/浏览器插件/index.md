@@ -1,7 +1,7 @@
 ---
 date: 2024-09-09
 slug: chrome-extension-focus
-title: 浏览器插件Focus
+title: 浏览器插件 Focus
 description: 如何开发一款浏览器插件？浏览器插件Focus，主要用于屏蔽指定的网站，让你有时间专注于自己的事情。
 authors: [yinpo]
 tags: [tool]
@@ -21,6 +21,8 @@ keywords: [tool, chrome extension, focus, plasmo framework, edge extension]
 所以我想要是能给它屏蔽就好了，这样能提醒我去做自己该做的事，不被多巴胺牵着鼻子。
 
 直到看到了这个 api，我觉得这是一个尝试的契机。
+
+<!-- truncate -->
 
 ## 框架
 

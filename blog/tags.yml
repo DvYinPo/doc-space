@@ -6,9 +6,14 @@ c++:
 tool:
   label: Tool
   permalink: /tool
-  description: 实用工具，将想法付诸实践。
+  description: 将想法付诸实践：实用工具，能用工具，不实用小垃圾。
 
 algorithm:
   label: Algorithm
   permalink: /algorithm
   description: An algorithm is a set of instructions for solving logical and mathematical problems, or for accomplishing some other task.
+
+document:
+  label: Document
+  permalink: /document
+  description: 好记性不如烂笔头：文档内容，使用方式。
