@@ -1,5 +1,5 @@
 ---
-date: 2024-07-31
+date: 2024-09-10
 slug: latex-math-expression-syntax
 title: LaTeX 数学公式语法
 description: LaTeX 数学公式语法介绍。
