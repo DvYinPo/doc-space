@@ -36,6 +36,9 @@ const config: Config = {
     [
       "classic",
       {
+        googleTagManagerId: "GTM-5N3GZ7WW",
+      },
+      {
         docs: {
           sidebarPath: "./sidebars.ts",
           path: "./docs",
