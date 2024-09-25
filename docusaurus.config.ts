@@ -34,11 +34,11 @@ const config: Config = {
 
   presets: [
     [
-      "classic",
+      "@docusaurus/preset-classic",
       {
-        googleTagManagerId: "GTM-5N3GZ7WW",
-      },
-      {
+        googleTagManager: {
+          containerId: "GTM-5N3GZ7WW",
+        },
         docs: {
           sidebarPath: "./sidebars.ts",
           path: "./docs",
