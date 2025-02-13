@@ -23,7 +23,7 @@ jobs:
           npm run build
 
       - name: Upload build artifacts
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           name: build-artifacts
           path: build/ # 指定构建输出的文件夹
