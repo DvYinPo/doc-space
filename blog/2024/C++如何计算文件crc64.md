@@ -2,7 +2,7 @@
 date: 2024-07-31
 slug: cpp-calculate-file-crc64
 title: C++ 如何计算 CRC 编码
-description: 关于此页的简短描述
+description: c++ 更加直观的实现CRC编码逻辑
 authors: [yinpo]
 tags: [c++]
 keywords: [c++, crc, crc-64, crc-64-ECMA]

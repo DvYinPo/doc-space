@@ -24,7 +24,7 @@ keywords: [SEO]
 它的主要作用是防止重复内容问题，提高 SEO 效果。
 当多个 URL 产生相同或相似内容时，Canonical Tags 帮助告知搜索引擎哪个 URL 是主要版本，从而将权重集中在该 URL 上。
 
-Canonical Tag 使用<link>标签，并放置在 HTML 文档的<head>部分中。其基本语法如下：
+Canonical Tag 使用`<link>`标签，并放置在 HTML 文档的`<head>`部分中。其基本语法如下：
 
 ```html
 <link rel="canonical" href="https://www.example.com/preferred-url/" />

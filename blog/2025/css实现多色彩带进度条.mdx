@@ -1,0 +1,187 @@
+---
+date: 2025-02-12
+slug: css-progress-bar
+title: css 实现多色彩带进度条
+description: 在使用css实现一个彩带进度条的时候，顺便解决一个简单的数学计算
+authors: [yinpo]
+tags: [css, Algorithm]
+keywords: [css, math, progress-bar]
+---
+
+import "./components/progressBar.css";
+export function ProgressBar() {
+  return (
+    <div className="progress-bar-container">
+      <div className="progress-bar-diamonds"></div>
+    </div>
+  );
+}
+
+# 效果展示
+
+如何使用纯 css 实现一个，像发廊门口彩灯样式的进度条呢？
+
+<ProgressBar />
+
+{/* truncate */}
+
+## 认识 linear-gradient
+
+使用纯 css 实现多色的背景，需要仰仗`linear-gradient`，根据 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/gradient/linear-gradient) 文档中的介绍，这是一个 css 函数，可以创建沿直线进行线性过度的图像
+
+> creates an image consisting of a progressive transition between two or more colors along a straight line.
+
+它的语法如下：
+
+```css
+background: linear-gradient(direction, color-stop1, color-stop2, ...);
+```
+
+第一个参数是方向，后面的参数全是颜色和结束位置。
+
+1. 方向可以传递角度，例如 `45 deg`,`90 deg`，也可以传方向指令：`to right`, `to bottom`。**如果不传默认就是从上到下**。
+2. 颜色和停止位置，例如 `red 50%` 表示红色直到 50%处结束。如果只传颜色不传停止位置`red`表示平均分配。
+
+所以想要实现这个进度条，我们需要一条角度为 135 deg 的从`红` => `蓝` => `红` 的图像
+
+## 确定渐变角度
+
+export function Rect({text = true, style = {}}) {
+  return (
+    <div style={{ position: "relative", display: "flex", justifyContent: "start", width: "200px", ...style }}>
+      <div style={{ width: "100px", height: "100px", border: "1px solid #000" }}></div>
+      <div style={{ width: "100px", height: "100px", border: "1px solid #000", marginLeft: "-1px" }}></div>
+      {
+        text ? <>
+          <span style={{ position: "absolute", left: "20px", top: "20px" }}>蓝</span>
+          <span style={{ position: "absolute", right: "120px", bottom: "20px" }}>红</span>
+          <span style={{ position: "absolute", left: "120px", top: "20px" }}>红</span>
+          <span style={{ position: "absolute", right: "20px", bottom: "20px" }}>蓝</span></> : null
+      }
+      <i
+        style={{
+          position: "absolute",
+          width: "138px",
+          height: "1px",
+          background: "red",
+          transform: "rotate(-45deg)",
+          transformOrigin: "0 0",
+          left: 0,
+          bottom: 0,
+        }}
+      />
+      <i
+        style={{
+          position: "absolute",
+          width: "138px",
+          height: "1px",
+          background: "red",
+          transform: "rotate(-45deg)",
+          transformOrigin: "0 0",
+          left: "100px",
+          bottom: 0,
+        }}
+      />
+
+    </div>
+
+);
+}
+
+将整个进度条分解可以看作是两块正方形区域，无限重复得到的结果
+
+<Rect />
+根据这个示意图，可以知道需要分为四个区域，分别是：
+
+- 方向为`135deg` 定位为`0 0` 的 `蓝` => `红`
+- 方向为`135deg` 定位为`50% 0`的 `红` => `蓝`
+
+## 计算中止位置
+
+现在有个棘手的计算，怎么知道中止的位置呢
+
+<div style={{ position: "relative", margin: "70px 50px 110px" }}>
+  <Rect text={false} />
+  <div
+    style={{
+      width: "212px",
+      height: "141px",
+      position: "absolute",
+      left: "49px",
+      top: "-50px",
+      transform: "rotate(45deg)",
+      transformOrigin: "0 0",
+      border: "1px solid #0366d6",
+    }}
+  />
+</div>
+
+这里的蓝色方框代表第一个方框中的渐变方向，角度为 135deg
+从这里可以看出，两根红线将蓝色方框`均分为三份`，所以这里的比例是 1/3 处
+
+那么代码应该如下：
+
+```css
+background: linear-gradient(135deg, red 33.33%, blue 66.66%, red 100%);
+```
+
+但是结果却是如下的：
+
+<Rect text={false} style={{ background: "linear-gradient(135deg, red 33.33%, blue 66.66%, red 100%)" }} />
+
+并没有棱角和清晰的边界，而是渐变的
+这里需要稍微加调整，在颜色切换的位置立马定义下一个颜色就能达到棱角分明的效果：
+
+```css
+background: linear-gradient(135deg, red 33.33%, blue 33.33%, blue 66.66%, red 66.66%, red 100%);
+```
+
+效果如下：
+
+<Rect
+  text={false}
+  style={{ background: "linear-gradient(135deg, red 33.33%, blue 33.33%, blue 66.66%, red 66.66%, red 100%)" }}
+/>
+
+## 其他属性
+
+当然想要得到完整的进度条还需要其他的属性配合：
+
+- 渐变块大小，确保长宽比为 2:1
+- 渐变块重复，用重复来填充整个背景区域
+- 进度条动画，让背景动起来
+
+代码分别如下:
+
+```css
+.progress-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% + 40px)
+  height: 100%
+  background-image: linear-gradient(
+    135deg,
+    red 0%,
+    red 33.33%,
+    blue 33.33%,
+    blue 66.66%,
+    red 66.66%,
+    red
+  );
+  background-size: 40px 20px;
+  background-repeat: repeat-x;
+  animation: moveDiamonds 2s linear infinite;
+}
+
+@keyframes moveDiamonds {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-40px);
+  }
+}
+```

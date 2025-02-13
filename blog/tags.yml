@@ -1,3 +1,8 @@
+css:
+  label: CSS
+  permalink: /css
+  description: 可别小瞧了css，纯css也能实现很多厉害的东西
+
 c++:
   label: C++
   permalink: /cpp
