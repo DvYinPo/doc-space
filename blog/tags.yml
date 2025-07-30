@@ -1,24 +1,29 @@
 css:
   label: CSS
   permalink: /css
-  description: 可别小瞧了css，纯css也能实现很多厉害的东西
+  description: 最熟悉的陌生人 —— 可别小瞧了css，纯css也能实现很多厉害的东西
 
 c++:
   label: C++
   permalink: /cpp
-  description: C++是世界上最牛逼的语言，没有之一。
+  description: 真神 —— C++是世界上最牛逼的语言，没有之一。
+
+electron:
+  label: Electron
+  permalink: /electron
+  description: Electron —— A cross-platform desktop apps with JavaScript, HTML, and CSS
 
 tool:
   label: Tool
   permalink: /tool
-  description: 将想法付诸实践：实用工具，能用工具，不实用小垃圾。
+  description: 干就完了 —— 将想法付诸实践，实用的工具，能用的工具，或者不实用的小垃圾。
 
 algorithm:
   label: Algorithm
   permalink: /algorithm
-  description: An algorithm is a set of instructions for solving logical and mathematical problems, or for accomplishing some other task.
+  description: Son of the god —— An algorithm is a set of instructions for solving logical and mathematical problems, or for accomplishing some other task.
 
 document:
   label: Document
   permalink: /document
-  description: 好记性不如烂笔头：文档内容，使用方式，改进与提升。
+  description: 好记性不如烂笔头 —— 文档内容，使用方式，改进与提升。

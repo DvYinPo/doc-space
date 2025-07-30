@@ -5,7 +5,7 @@ import type { Options as BlogOptions } from "@docusaurus/plugin-content-blog";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 
-const config: Config = {
+const config = {
   title: "Document Space",
   tagline: "Everything is cool!",
   favicon: "img/favicon.ico",
@@ -78,14 +78,7 @@ const config: Config = {
       "@docusaurus/plugin-content-blog",
       {
         id: "archive-blog",
-        /**
-         * URL route for the blog section of your site.
-         * *DO NOT* include a trailing slash.
-         */
         routeBasePath: "archive",
-        /**
-         * Path to data on filesystem relative to site dir.
-         */
         blogSidebarTitle: "Archived blogs",
         blogSidebarCount: 0,
         showLastUpdateAuthor: true,
@@ -98,6 +91,15 @@ const config: Config = {
         remarkPlugins: [remarkMath],
         rehypePlugins: [rehypeKatex],
       } satisfies BlogOptions,
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "wrapper-docs",
+        sidebarPath: "./sidebars.ts",
+        path: "./wrappers",
+        routeBasePath: "wrappers",
+      },
     ],
   ],
 
@@ -175,6 +177,6 @@ const config: Config = {
       crossorigin: "anonymous",
     },
   ],
-};
+} satisfies Config;
 
 export default config;

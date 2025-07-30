@@ -1,7 +1,7 @@
 ---
 date: 2024-10-15
 slug: seo-optimisation
-title: C++ 如何计算 CRC 编码
+title: SEO 优化
 description: 关于此页的简短描述
 authors: [yinpo]
 tags: [document]

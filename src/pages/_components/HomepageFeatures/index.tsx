@@ -26,7 +26,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: "Wrappers",
     Svg: require("@site/static/tiger/caper.svg").default,
-    link: "/docs",
+    link: "/wrappers",
     description: <>Function wrappers</>,
   },
   {
