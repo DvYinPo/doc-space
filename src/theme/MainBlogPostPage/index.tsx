@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { HtmlClassNameProvider, ThemeClassNames } from "@docusaurus/theme-common";
 import { BlogPostProvider, useBlogPost } from "@docusaurus/plugin-content-blog/client";
 import BlogLayout from "@theme/BlogLayout";
+import { ColorModeProvider } from "@docusaurus/theme-common/internal";
 import BlogPostItem from "@theme/BlogPostItem";
 import BlogPostPaginator from "@theme/BlogPostPaginator";
 import BlogPostPageMetadata from "@theme/BlogPostPage/Metadata";
@@ -14,13 +15,7 @@ import type { BlogSidebar } from "@docusaurus/plugin-content-blog";
 import Comments from "@site/src/pages/_components/Comments";
 import styles from "./styles.module.css";
 
-function BlogPostPageContent({
-  sidebar,
-  children,
-}: {
-  sidebar: BlogSidebar;
-  children: ReactNode;
-}): JSX.Element {
+function BlogPostPageContent({ sidebar, children }: { sidebar: BlogSidebar; children: ReactNode }): JSX.Element {
   const { metadata, toc } = useBlogPost();
   const { nextItem, prevItem, frontMatter } = metadata;
   const {
@@ -33,11 +28,7 @@ function BlogPostPageContent({
       sidebar={sidebar}
       toc={
         !hideTableOfContents && toc.length > 0 ? (
-          <TOC
-            toc={toc}
-            minHeadingLevel={tocMinHeadingLevel}
-            maxHeadingLevel={tocMaxHeadingLevel}
-          />
+          <TOC toc={toc} minHeadingLevel={tocMinHeadingLevel} maxHeadingLevel={tocMaxHeadingLevel} />
         ) : undefined
       }
     >
@@ -58,23 +49,20 @@ export default function BlogPostPage(props: Props): JSX.Element {
   };
 
   return (
-    <BlogPostProvider content={props.content} isBlogPostPage>
-      <HtmlClassNameProvider
-        className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogPostPage)}
-      >
-        <BlogPostPageMetadata />
-        <BlogPostPageStructuredData />
-        <BlogPostPageContent sidebar={props.sidebar}>
-          <BlogPostContent />
-        </BlogPostPageContent>
-        <button
-          className={clsx("col", "col--6", "col--offset-3", styles["back-btn"])}
-          onClick={handleBack}
-        >
-          Back To List
-        </button>
-        <Comments />
-      </HtmlClassNameProvider>
-    </BlogPostProvider>
+    <ColorModeProvider>
+      <BlogPostProvider content={props.content} isBlogPostPage>
+        <HtmlClassNameProvider className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogPostPage)}>
+          <BlogPostPageMetadata />
+          <BlogPostPageStructuredData />
+          <BlogPostPageContent sidebar={props.sidebar}>
+            <BlogPostContent />
+          </BlogPostPageContent>
+          <button className={clsx("col", "col--6", "col--offset-3", styles["back-btn"])} onClick={handleBack}>
+            Back To List
+          </button>
+          <Comments />
+        </HtmlClassNameProvider>
+      </BlogPostProvider>
+    </ColorModeProvider>
   );
 }
