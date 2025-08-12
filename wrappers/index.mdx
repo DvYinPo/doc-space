@@ -1,0 +1,116 @@
+---
+sidebar_position: 1
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+# Getting started
+
+This is a TypeScript utility library that encapsulates common and practical functions and classes for JavaScript/TypeScript applications.
+
+The utility-wrapper library serves as a collection of reusable utility functions organized into focused modules covering common development needs including data storage, number formatting, URL handling, and performance optimization utilities.
+
+The utility-wrapper package is distributed through npm and supports multiple installation methods and environments.
+
+## Installation
+
+Install the package using your preferred package manager:
+
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+    <CodeBlock language="bash">npm install utility-wrapper</CodeBlock>
+  </TabItem>
+  <TabItem value="yarn" label="Yarn">
+    <CodeBlock language="bash">yarn add utility-wrapper</CodeBlock>
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+    <CodeBlock language="bash">pnpm install utility-wrapper</CodeBlock>
+  </TabItem>
+  <TabItem value="bun" label="Bun">
+    <CodeBlock language="bash">bun install utility-wrapper</CodeBlock>
+  </TabItem>
+</Tabs>
+
+The package provides multiple distribution formats to support different JavaScript environments and module systems:
+
+| Format     | File         | Use Case             | Environment          |
+| ---------- | ------------ | -------------------- | -------------------- |
+| CommonJS   | index.cjs.js | Node.js applications | require() syntax     |
+| ES Modules | index.esm.js | Modern bundlers      | import/export syntax |
+| UMD        | index.umd.js | Browser direct usage | \<script\> tags      |
+| TypeScript | index.d.ts   | Type definitions     | IDE support          |
+
+## Import Methods
+
+### ES Module Imports (Recommended)
+
+For modern JavaScript environments and TypeScript projects:
+
+```js
+// Import all utilities
+import * as utils from "utility-wrapper";
+
+// Import individual functions
+import { flatMap, formatTime } from "utility-wrapper";
+```
+
+### CommonJS Imports
+
+For Node.js environments using require():
+
+```js
+// Import all utilities
+const utils = require("utility-wrapper");
+
+// Destructure specific modules
+const { StorageManager, IDB } = require("utility-wrapper");
+```
+
+### Browser UMD Usage
+
+For direct browser usage without a bundler:
+
+```html
+<script src="node_modules/utility-wrapper/dist/index.umd.js"></script>
+<script>
+  // Utilities available on global UtilityWrapper object
+  const storage = new UtilityWrapper.StorageManager();
+</script>
+```
+
+## Quick Usage
+
+### Basic Storage Management:
+
+```ts
+import { StorageManager } from "utility-wrapper";
+
+const storage = new StorageManager();
+
+// Store data with encryption
+storage.setItem(
+  "user-data",
+  { name: "John", age: 30 },
+  {
+    encrypt: true,
+    expire: 3600, // 1 hour expiration
+  },
+);
+
+// Retrieve data
+const userData = storage.getItem("user-data");
+```
+
+### Array Processing
+
+```ts
+import { flatMap } from "utility-wrapper";
+
+const nestedArray = [1, [2, [3, 4]], [5, 6]];
+const flattened = flatMap(nestedArray);
+// Result: [1, 2, 3, 4, 5, 6]
+```
+
+Review detailed documentation for each utility module in [Core Modules](./category/core-modules/)

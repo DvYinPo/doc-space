@@ -102,7 +102,7 @@ const config = {
       },
     ],
   ],
-
+  themes: ["@docusaurus/theme-live-codeblock"],
   themeConfig: {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
@@ -166,6 +166,7 @@ const config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      additionalLanguages: ["bash", "powershell"],
     },
   } satisfies Preset.ThemeConfig,
 

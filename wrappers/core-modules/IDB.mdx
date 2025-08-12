@@ -1,0 +1,41 @@
+# IndexedDB
+
+This provides the IDB class, a simplified wrapper around the browser's IndexedDB API. The IDB class provides a Promise-based interface for basic database operations, abstracting away the complexity of IndexedDB's event-driven API.
+
+The IndexedDB Wrapper consists of a single IDB class that encapsulates database connection management and basic CRUD operations. It simplifies IndexedDB usage by providing Promise-based methods instead of the native callback-based approach.
+
+```ts title="Constructor Types"
+constructor(dbName: string, storeName: string)
+```
+
+The class provides three main data operations:
+
+1. `addItem`:creates a read-write transaction and uses the object store's add method. It returns a Promise that resolves with a success message.
+2. `getItems`: fetches all items from the object store using getAll() and returns them as an array.
+3. `clearAll`: removes all items from the object store using the clear() operation.
+
+**Usage Example:**
+
+```tsx live
+function () {
+  const indexedDB = new UtilityWrapper.IDB('test DB', 'test store');
+
+  const item = { name: 'Test' };
+
+  const [response, setResponse] = useState();
+
+  const handleGetItem = async () => {
+    await indexedDB.open();
+    await indexedDB.addItem(item);
+    const response = await indexedDB.getItems();
+    setResponse(response)
+  }
+
+  return (
+    <>
+      <button onClick={handleGetItem}>get result: </button>
+      <div>{JSON.stringify(response)}</div>
+    </>
+  );
+}
+```

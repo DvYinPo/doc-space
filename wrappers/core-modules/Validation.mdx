@@ -1,0 +1,15 @@
+# Validation
+
+This provides a set of validation functions for common string patterns including email addresses, phone numbers, Japanese Katakana characters, English letters, and numeric strings.
+
+Each validation function returns both a boolean validity check and a sanitized version of the input string with invalid characters removed.
+
+| Function | Purpose                            | Pattern                                    |
+| -------- | ---------------------------------- | ------------------------------------------ |
+| isEmail  | Email address validation           | Basic email format with allowed characters |
+| isPhone  | Chinese mobile phone validation    | 11-digit format starting with 1[3-9]       |
+| isKana   | Japanese Katakana/Latin validation | Katakana Unicode range + Latin letters     |
+| isLetter | English letters only               | A-Z, a-z characters                        |
+| isNumber | Numeric strings only               | 0-9 digits                                 |
+
+## Email

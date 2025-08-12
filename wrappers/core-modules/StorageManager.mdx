@@ -1,0 +1,66 @@
+# StorageManager
+
+The StorageManager module provides a sophisticated abstraction layer over the browser's localStorage API, adding features for data encryption, automatic expiration, and storage size management. This module wraps localStorage operations in a class-based interface that handles JSON serialization, optional encryption, and metadata management transparently.
+
+## Core Functionality
+
+StorageManager uses a proprietary data envelope format to store enhanced metadata alongside user data. The format uses configurable prefix and suffix markers to identify managed data.
+
+The complete stored format: `[YIN%{"value":"data","encryption":true,"expire":1234567890}%PO]`
+
+## Encryption System
+
+StorageManager implements a simple XOR cipher for data encryption. The encryption is applied at the value level before JSON serialization.
+
+## Expiration Handling
+
+The system supports automatic data expiration through timestamp-based validation. Expiration is specified in milliseconds relative to the current time.
+
+## Size Management
+
+StorageManager provides utilities to monitor localStorage usage against browser limits. The system assumes a 4MB storage limit and calculates sizes based on UTF-16 character encoding.
+
+**Size Calculation Method**
+The getSize() method iterates through all localStorage entries and calculates total size:
+
+Each character takes 2 bytes (UTF-16 encoding)
+Size is returned in KB (bytes ÷ 1024)
+Only includes keys that pass the has() validation
+
+## API Methods
+
+| Method             | Parameters                               | Return Type     | Description                                         |
+| ------------------ | ---------------------------------------- | --------------- | --------------------------------------------------- |
+| set()              | key: string, value: any, option?: object | void            | Stores data with optional encryption and expiration |
+| get()              | key: string                              | any \| null     | Retrieves data, handling decryption and expiration  |
+| remove()           | key: string                              | void            | Removes specific key from storage                   |
+| clear()            | none                                     | void            | Clears all localStorage data                        |
+| all()              | none                                     | StorageDataType | Returns all key-value pairs as object               |
+| has()              | key: string                              | boolean         | Checks if key exists and is not expired             |
+| getSize()          | none                                     | number          | Returns total localStorage usage in KB              |
+| getRemainingSize() | none                                     | number          | Returns available storage space in KB               |
+
+```ts title="Constructor Type"
+constructor (initialData: { [key: string]: any }, secretKey?: string)
+```
+
+**Usage Example:**
+
+```tsx live
+function () {
+  const resource = {
+    id: 1,
+    name: "Item 1",
+  }
+
+  const storageManager = new UtilityWrapper.StorageManager(resource, "1234");
+
+  return (
+    <>
+      <div>Result: </div>
+      <div>{storageManager.get("name")}</div>
+      <div>{storageManager.get("id")}</div>
+    </>
+  );
+}
+```

@@ -1,0 +1,77 @@
+# Locker
+
+This provides timing control utilities for performance optimization in JavaScript applications. This module contains two primary functions, debounce and throttle, which help manage the frequency of function execution to improve application responsiveness and reduce computational overhead.
+
+## debounce
+
+debounce function delays function execution until after a specified wait time has elapsed since the last invocation. This pattern is ideal for scenarios like search input handling or window resize events.
+
+**Function Signature**
+
+```ts
+function debounce<F extends (...args: any[]) => any>(func: F, wait: number = 100): F;
+```
+
+**Implementation Details**
+
+- timeoutID: Stores the current setTimeout identifier for cancellation
+- Returns a wrapper function that preserves the original function's type signature
+- Uses func.apply() to maintain proper this context and argument passing
+
+**Usage Example:**
+
+```tsx live
+function () {
+  const [time, setTime] = useState(1);
+
+  const addTime = () => {
+    setTime(time + 1)
+  }
+
+  const handleClick = UtilityWrapper.debounce(addTime, 1000);
+
+  return (
+    <>
+      <button onClick={handleClick}>Add times</button>
+      <div>{time}</div>
+    </>
+  );
+}
+```
+
+## throttle
+
+`throttle` function ensures a function executes at most once per specified time interval. Unlike debounce, throttle guarantees periodic execution during continuous activity.
+
+**Function Signature**
+
+```ts
+function throttle<F extends (...args: any[]) => any>(func: F, limit: number = 100): F;
+```
+
+**Implementation Details**
+
+- lastFunc: Stores setTimeout identifier for delayed execution
+- lastRan: Tracks timestamp of last successful execution
+- First call executes immediately, subsequent calls are delayed or queued
+
+**Usage Example:**
+
+```ts live
+function () {
+  const [time, setTime] = useState(1);
+
+  const addTime = () => {
+    setTime(prevTime => prevTime + 1)
+  }
+
+  const handleClick = useCallback(UtilityWrapper.throttle(addTime, 1000), []);
+
+  return (
+    <>
+      <button onClick={handleClick}>Add times</button>
+      <div>{time}</div>
+    </>
+  );
+}
+```

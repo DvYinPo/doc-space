@@ -1,0 +1,103 @@
+# Unit Formatting
+
+This provides utilities for formatting numbers, percentages, file sizes, and time durations into human-readable strings. The module focuses on display formatting rather than mathematical operations or data validation.
+
+## numberWithCommas
+
+The `numberWithCommas` function formats numeric values with thousands separators using the US locale format.
+
+- Input: number | string
+- Output: string (formatted number or "0" for invalid inputs)
+- Locale: en-US
+
+**Usage Example:**
+
+```tsx live
+function () {
+  const resource = 123456789
+
+  const target = UtilityWrapper.numberWithCommas(resource);
+
+  return (
+    <>
+      <div>Result: </div>
+      <div>{target}</div>
+    </>
+  );
+}
+```
+
+## decimalToPercentage
+
+The `decimalToPercentage` function converts decimal values to percentage strings with configurable precision.
+
+- Input: value: number, decimal?: number (default decimal places: 2)
+- Output: string (percentage with "%" suffix)
+
+**Usage Example:**
+
+```tsx live
+function () {
+  const resource = 0.1234
+
+  const target = UtilityWrapper.decimalToPercentage(resource);
+
+  return (
+    <>
+      <div>Result: </div>
+      <div>{target}</div>
+    </>
+  );
+}
+```
+
+## bitsToReadable
+
+The `bitsToReadable` function converts byte values to human-readable file size strings using binary (1024-based) units.
+
+The function uses a standard progression of binary units with automatic unit selection based on the input size.
+
+Units Array: `["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"]`
+
+**Usage Example:**
+
+```tsx live
+function () {
+  const resource = 123456789
+
+  const target = UtilityWrapper.bitsToReadable(resource);
+
+  return (
+    <>
+      <div>Result: </div>
+      <div>{target}</div>
+    </>
+  );
+}
+```
+
+## timeToReadable
+
+The `timeToReadable` function converts seconds to HH:MM:SS format with zero-padding for consistent display width.
+
+Function Signature
+
+- Input: number (seconds)
+- Output: string (HH:MM:SS format or "0" for invalid inputs)
+
+**Usage Example:**
+
+```tsx live
+function () {
+  const resource = 1234
+
+  const target = UtilityWrapper.timeToReadable(resource);
+
+  return (
+    <>
+      <div>Result: </div>
+      <div>{target}</div>
+    </>
+  );
+}
+```
