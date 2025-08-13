@@ -151,7 +151,7 @@ const config = {
       appId: "G6KJFCYEXN",
       // Public API key: it is safe to commit it
       apiKey: "e5ec4dc033d49644b3bf9d45296242f1",
-      indexName: "docs_index",
+      indexName: "doc-space",
 
       // Optional: see doc section below
       contextualSearch: true,
