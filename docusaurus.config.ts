@@ -125,6 +125,10 @@ const config = {
         name: "google-site-verification",
         content: "iL-Liz0y6EnF_CyqW73Pq_YRsDN-OCqsIeowBpk9of0",
       },
+      {
+        name: "algolia-site-verification",
+        content: "A36B78BF8DEF8125",
+      },
     ],
     navbar: {
       title: "Doc Space",
@@ -147,7 +151,7 @@ const config = {
       appId: "G6KJFCYEXN",
       // Public API key: it is safe to commit it
       apiKey: "e5ec4dc033d49644b3bf9d45296242f1",
-      indexName: "movies_index",
+      indexName: "docs_index",
 
       // Optional: see doc section below
       contextualSearch: true,
