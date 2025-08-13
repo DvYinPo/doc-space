@@ -144,10 +144,10 @@ const config = {
     },
     footer: undefined,
     algolia: {
-      appId: "46OC3C8LHM",
+      appId: "G6KJFCYEXN",
       // Public API key: it is safe to commit it
-      apiKey: "e6329a618bde1dee32f4a35a548fa421",
-      indexName: "dvyinpoio",
+      apiKey: "e5ec4dc033d49644b3bf9d45296242f1",
+      indexName: "movies_index",
 
       // Optional: see doc section below
       contextualSearch: true,
