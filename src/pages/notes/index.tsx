@@ -1,14 +1,14 @@
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import { usePluginData } from "@docusaurus/useGlobalData";
-import { useIssuesByLabel } from "./useIssues";
+import { useIssuesByLabel } from "../_hooks/useIssues";
 import React, { useRef, useState } from "react";
 import style from "./index.module.css";
 import clsx from "clsx";
 import Loading from "@site/src/pages/_components/Loading";
 import IconWrite from "@site/src/assets/write.svg";
 import useOverflow from "@site/src/pages/_hooks/useOverflow";
-import MarkdownRender from "./MarkdownRender";
+import MarkdownRender from "@site/src/pages/_components/MarkdownRender";
 
 function ContentBlock({ text }) {
   const textRef = useRef(null);
@@ -31,7 +31,8 @@ function ContentBlock({ text }) {
 
 export default function (): JSX.Element {
   const { issues, loading, error, hasMore, loadMore, refetch } = useIssuesByLabel({
-    token: "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",
+    token:
+      "Z2l0aHViX3BhdF8xMUFIQVBIS1EwbzNodzR5dlZwM0xPX3VXeUVJZW9rWnJkUklvZnVBN0xRUENLcHlORFZEZWZlYjlHMXUyaUF3dFpSNlVVTkRRUEx3NWhiZmc2",
     perPage: 20,
   });
 

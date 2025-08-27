@@ -16,7 +16,7 @@ const repo = "doc-space";
 const label = "github-page-notes";
 
 type UseIssuesOptions = {
-  token?: string; // 可选，若访问私有仓库或提高速率限制可以传入 GitHub token
+  token?: string; // 可选，若访问私有仓库或提高速率限制可以传入 GitHub token, 需要先解码base64
   perPage?: number;
   enabled?: boolean; // 是否启用自动请求
   initialPage?: number;
@@ -71,7 +71,7 @@ export function useIssuesByLabel({ token, perPage = 30, enabled = true, initialP
         const headers: Record<string, string> = {
           Accept: "application/vnd.github.v3+json",
         };
-        if (token) headers.Authorization = `token ${token}`;
+        if (token) headers.Authorization = `token ${window.atob(token)}`;
 
         const res = await fetch(url, { headers, signal: ac.signal });
         if (!res.ok) {

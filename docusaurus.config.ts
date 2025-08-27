@@ -136,15 +136,6 @@ const config = {
         routeBasePath: "wrappers",
       },
     ],
-    [
-      "@docusaurus/plugin-content-docs",
-      {
-        id: "notes-doc",
-        sidebarPath: "./sidebars.ts",
-        path: "./notes",
-        routeBasePath: "notes",
-      },
-    ],
   ],
   themes: ["@docusaurus/theme-live-codeblock", "@docusaurus/theme-search-algolia"],
   themeConfig: {
