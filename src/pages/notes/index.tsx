@@ -31,8 +31,6 @@ function ContentBlock({ text }) {
 
 export default function (): JSX.Element {
   const { issues, loading, error, hasMore, loadMore, refetch } = useIssuesByLabel({
-    token:
-      "Z2l0aHViX3BhdF8xMUFIQVBIS1EwbzNodzR5dlZwM0xPX3VXeUVJZW9rWnJkUklvZnVBN0xRUENLcHlORFZEZWZlYjlHMXUyaUF3dFpSNlVVTkRRUEx3NWhiZmc2",
     perPage: 20,
   });
 

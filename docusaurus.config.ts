@@ -173,7 +173,7 @@ const config = {
       },
       items: [
         {
-          to: "./notes",
+          to: "/notes",
           position: "left",
           label: "随笔",
         },
