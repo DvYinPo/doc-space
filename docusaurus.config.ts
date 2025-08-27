@@ -9,6 +9,7 @@ const config = {
   title: "Document Space",
   tagline: "Everything is cool!",
   favicon: "img/favicon.ico",
+  staticDirectories: ["static"],
 
   // Set the production url of your site here
   url: "https://dvyinpo.github.io",
@@ -32,48 +33,47 @@ const config = {
     locales: ["en"],
   },
 
-  presets: [
-    [
-      "@docusaurus/preset-classic",
-      {
-        googleTagManager: {
-          containerId: "GTM-5N3GZ7WW",
-        },
-        docs: {
-          sidebarPath: "./sidebars.ts",
-          path: "./docs",
-          routeBasePath: "/docs",
-        },
-        blog: {
-          blogTitle: "Document space blog",
-          blogPostComponent: "/src/theme/MainBlogPostPage",
-          blogDescription: "Yinpo document space blog.",
-          blogSidebarCount: "ALL",
-          showLastUpdateAuthor: true,
-          showLastUpdateTime: true,
-          showReadingTime: true,
-          remarkPlugins: [remarkMath],
-          rehypePlugins: [rehypeKatex],
-          feedOptions: {
-            type: "all",
-            copyright: `Copyright © ${new Date().getFullYear()} yinpo`,
-            createFeedItems: async (params) => {
-              const { blogPosts, defaultCreateFeedItems, ...rest } = params;
-              return defaultCreateFeedItems({
-                blogPosts: blogPosts.filter((item, index) => index < 10),
-                ...rest,
-              });
-            },
-          },
-        },
-        theme: {
-          customCss: "./src/css/custom.css",
-        },
-      } satisfies Preset.Options,
-    ],
-  ],
-
   plugins: [
+    [
+      "@docusaurus/plugin-svgr",
+      {
+        svgrConfig: {
+          rules: [
+            {
+              test: /\.svg$/i,
+              issuer: /\.[jt]sx?$/,
+              use: ["@svgr/webpack"],
+            },
+          ],
+        },
+      },
+    ],
+    [
+      "@docusaurus/plugin-google-tag-manager",
+      {
+        containerId: "GTM-5N3GZ7WW",
+      },
+    ],
+    [
+      "@docusaurus/theme-classic",
+      {
+        customCss: "./src/css/custom.css",
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-pages",
+      {
+        path: "./src/pages",
+        routeBasePath: "",
+        include: ["**/*.{js,jsx,ts,tsx,md,mdx}"],
+        exclude: ["**/_*.{js,jsx,ts,tsx,md,mdx}", "**/_*/**", "**/*.test.{js,jsx,ts,tsx}", "**/__tests__/**"],
+        mdxPageComponent: "@theme/MDXPage",
+        remarkPlugins: [remarkMath],
+        rehypePlugins: [rehypeKatex],
+        beforeDefaultRemarkPlugins: [],
+        beforeDefaultRehypePlugins: [],
+      },
+    ],
     [
       "@docusaurus/plugin-content-blog",
       {
@@ -93,6 +93,41 @@ const config = {
       } satisfies BlogOptions,
     ],
     [
+      "@docusaurus/plugin-content-blog",
+      {
+        id: "main-blog",
+        blogTitle: "Document space blog",
+        blogPostComponent: "/src/theme/MainBlogPostPage",
+        blogDescription: "Yinpo document space blog.",
+        blogSidebarCount: "ALL",
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+        showReadingTime: true,
+        remarkPlugins: [remarkMath],
+        rehypePlugins: [rehypeKatex],
+        feedOptions: {
+          type: "all",
+          copyright: `Copyright © ${new Date().getFullYear()} yinpo`,
+          createFeedItems: async (params) => {
+            const { blogPosts, defaultCreateFeedItems, ...rest } = params;
+            return defaultCreateFeedItems({
+              blogPosts: blogPosts.filter((item, index) => index < 10),
+              ...rest,
+            });
+          },
+        },
+      } satisfies BlogOptions,
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "components-doc",
+        sidebarPath: "./sidebars.ts",
+        path: "./components-doc",
+        routeBasePath: "/components",
+      },
+    ],
+    [
       "@docusaurus/plugin-content-docs",
       {
         id: "wrapper-docs",
@@ -101,8 +136,17 @@ const config = {
         routeBasePath: "wrappers",
       },
     ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "notes-doc",
+        sidebarPath: "./sidebars.ts",
+        path: "./notes",
+        routeBasePath: "notes",
+      },
+    ],
   ],
-  themes: ["@docusaurus/theme-live-codeblock"],
+  themes: ["@docusaurus/theme-live-codeblock", "@docusaurus/theme-search-algolia"],
   themeConfig: {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
@@ -138,10 +182,9 @@ const config = {
       },
       items: [
         {
-          type: "dropdown",
-          label: "其他",
-          position: "right",
-          items: [{ to: "/archive", label: "归档" }],
+          to: "./notes",
+          position: "left",
+          label: "随笔",
         },
         { type: "search", position: "right" },
       ],

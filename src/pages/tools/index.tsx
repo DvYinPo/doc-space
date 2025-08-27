@@ -1,6 +1,7 @@
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import { usePluginData } from "@docusaurus/useGlobalData";
+import { ChangeEvent } from "react";
 
 export default function (): JSX.Element {
   function calculateCRC64(arrayBuffer) {
@@ -63,7 +64,7 @@ export default function (): JSX.Element {
     return crcTable;
   }
 
-  const handleChange = (event: HTMLInputElement) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
     const file = target.files[0];
 

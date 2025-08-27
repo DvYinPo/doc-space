@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import Heading from "@theme/Heading";
 import styles from "./styles.module.css";
 import Link from "@docusaurus/Link";
@@ -32,7 +31,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: "Components",
     Svg: require("@site/static/tiger/easy.svg").default,
-    link: "/docs",
+    link: "/components",
     description: <>My components</>,
   },
 ];
@@ -42,7 +41,7 @@ function Feature({ title, Svg, description, link }: FeatureItem) {
     <Link className={styles.itemCard} href={link}>
       <div className="text--center">
         <Heading as="h3">{title}</Heading>
-        <Svg className={styles.featureSvg} role="img" />
+        <Svg className={styles.featureSvg} />
       </div>
       <div className="text--center padding-horiz--md">
         <p>{description}</p>
