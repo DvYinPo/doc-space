@@ -99,7 +99,7 @@
   margin-top: 10px;
   font-size: 14px;
   line-height: 20px;
-  white-space: break-spaces;
+  white-space: normal;
   word-break: break-word;
   max-height: 100px;
   overflow: hidden;

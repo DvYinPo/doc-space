@@ -8,18 +8,28 @@
 
 /* 不同类型不同颜色（可扩展） */
 .admonition-note {
-  border-left-color: var(--ifm-color-success-dark);
+  border-left-color: var(--ifm-color-info);
+  background: var(--ifm-color-info-contrast-background);
+}
+
+.admonition-tip {
+  border-left-color: var(--ifm-color-success);
   background: var(--ifm-color-success-contrast-background);
 }
 
-.admonition-danger {
-  border-left-color: var(--ifm-color-danger-dark);
+.admonition-important {
+  border-left-color: var(--ifm-color-danger);
   background: var(--ifm-color-danger-contrast-background);
 }
 
 .admonition-warning {
-  border-left-color: var(--ifm-color-warning-dark);
+  border-left-color: var(--ifm-color-warning);
   background: var(--ifm-color-warning-contrast-background);
+}
+
+.admonition-caution {
+  border-left-color: var(--ifm-color-danger);
+  background: var(--ifm-color-danger-contrast-background);
 }
 
 /* 标题样式 */
